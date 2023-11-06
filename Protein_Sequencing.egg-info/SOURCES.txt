@@ -1,0 +1,9 @@
+README.md
+setup.py
+Protein_Sequencing.egg-info/PKG-INFO
+Protein_Sequencing.egg-info/SOURCES.txt
+Protein_Sequencing.egg-info/dependency_links.txt
+Protein_Sequencing.egg-info/entry_points.txt
+Protein_Sequencing.egg-info/requires.txt
+Protein_Sequencing.egg-info/top_level.txt
+test/test_prot_seq.py
