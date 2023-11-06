@@ -415,7 +415,7 @@ def makeEdgeList(labels, biggestDiffs):
     return edge_lst
 
 
-def main():
+def run():
     
     #Pulls all functions defined in this program together to process,
     #analyze and display similarities and differences between the
@@ -435,4 +435,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    run()
