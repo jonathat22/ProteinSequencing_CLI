@@ -16,4 +16,4 @@ DNA is composed of four bases: cytosine (C), guanine (G), adenine (A), and thymi
 
 This program is designed to work on the command line and can be run with one command. The two DNA sequences are stored in the same directory as the prot_seq.py file and the command to run is simply:
 
-python prot_seq {file_path_1} {file_path_2}
+python prot_seq.py {file_path_1} {file_path_2}
