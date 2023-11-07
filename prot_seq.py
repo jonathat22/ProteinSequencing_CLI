@@ -12,6 +12,7 @@ Author: Jonathan Taylor
 from prettytable import PrettyTable
 import matplotlib.pyplot as plt
 import numpy as np
+import click
 
 project = "ProteinSeq"
 
@@ -414,20 +415,22 @@ def makeEdgeList(labels, biggestDiffs):
             edge_lst.append("white")
     return edge_lst
 
-
-def run():
+@click.command()
+@click.argument("sequence1", type=click.Path(exists=True))
+@click.argument("sequence2", type=click.Path(exists=True))
+def run(sequence1, sequence2):
     
     #Pulls all functions defined in this program together to process,
     #analyze and display similarities and differences between the
     #human and elephant p53 genes
          
-    humanProteins = synthesizeProteins("data/human_p53.txt")
-    elephantProteins = synthesizeProteins("data/elephant_p53.txt")
-    commonalities = commonProteins(humanProteins, elephantProteins)
-    differences = findAminoAcidDifferences(humanProteins, elephantProteins)
+    seq1 = synthesizeProteins(sequence1)
+    seq2 = synthesizeProteins(sequence2)
+    commonalities = commonProteins(seq1, seq2)
+    differences = findAminoAcidDifferences(seq1, seq2)
     displayTextResults(commonalities, differences)
-    Labels = makeAminoAcidLabels([humanProteins, elephantProteins])
-    freqList = setupChartData(Labels, [humanProteins, elephantProteins])
+    Labels = makeAminoAcidLabels([seq1, seq2])
+    freqList = setupChartData(Labels, [seq1, seq2])
     freqLabels = ["human", "elephant"]
     edge_List = makeEdgeList(Labels, differences)
     createChart(Labels, freqList, freqLabels, edge_List)
